@@ -315,15 +315,22 @@
         }
 
         function drawFinalText() {
-            if (state === "FINAL_HEART") {
-                if (textOpacity < 1) textOpacity += 0.01;
-                // Mengecilkan ukuran font teks akhir
-                ctx.font = `bold ${Math.min(canvas.width / 24, 26)}px "Comic Sans MS", cursive`;
-                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.fillStyle = `rgba(255, 255, 255, ${textOpacity})`;
-                ctx.fillText("I LOVE YOU SAYANG❤️", canvas.width / 2, canvas.height / 2);
-            }
-        }
+    if (state === "FINAL_HEART") {
+        if (textOpacity < 1) textOpacity += 0.01;
+        
+        // Ukuran font
+        ctx.font = `bold ${Math.min(canvas.width / 24, 26)}px "Comic Sans MS", cursive`;
+        ctx.textAlign = 'center'; 
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 255, 255, ${textOpacity})`;
+
+        // Baris 1: I LOVE YOU SAYANGKU (Posisi Y dikurangi 20 agar naik sedikit)
+        ctx.fillText("I LOVE YOU SAYANGKU❤️", canvas.width / 2, canvas.height / 2 - 20);
+
+        // Baris 2: AZIZAH (Posisi Y ditambah 20 agar turun sedikit)
+        ctx.fillText("AZIZAH", canvas.width / 2, canvas.height / 2 + 20);
+    }
+}
 
         function draw() {
             drawMatrix();
@@ -352,4 +359,5 @@
         draw();
     </script>
 </body>
+
 </html>
